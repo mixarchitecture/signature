@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to MixArchitecture!</title>
+    <link rel="icon" href="./logo.png" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            height: 100%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            height: 100vh;
+            width: 100vw;
+            background-color: #003F8C;
+        }
+        a {
+            text-decoration: none;
+            color: #fc97cc;
+        }
+        img {
+            width: 500px;
+            height: 500px;
+        }
+        h1 {
+            color: white;
+            font-size: 50px;
+            margin-top: 20px;
+        }
+        p {
+            color: white;
+            font-size: 20px;
+            margin-top: 20px;
+        }
+        .content {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            height: 90vh;
+            width: 100vw;
+        }
+
+        @media screen and (max-width: 600px) {
+            img {
+                width: 300px;
+                height: 300px;
+            }
+            h1 {
+                font-size: 30px;
+            }
+            p {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+    <a href="https://mixarchitecture.pages.dev" target="_blank"><img alt="logo" src="./logo.png" /></a>
+    <a  href="https://mixarchitecture.pages.dev" target="_blank"><h1>Mix Architecture</h1></a>
+    <p>Bu site MixArchitecture ile geliştirilmiştir.</p>
+    <p>
+        CopyRight &copy; <span id="year">2023</span> by <a href="https://mixarchitecture.pages.dev" target="_blank">MixArchitecture</a>
+    </p>
+</div>
+
+    <script>
+        console.info('Hoş geldiniz!');
+        console.info('Bu site MixArchitecture ile geliştirilmiştir.');
+        console.info('Teknik destek için: https://mixarchitecture.pages.dev');
+
+        const year = document.getElementById('year');
+        year.innerHTML = new Date().getFullYear();
+    </script>
+</body>
+</html>
