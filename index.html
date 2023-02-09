@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,33 +13,40 @@
             padding: 0;
             box-sizing: border-box;
         }
+
         html {
             height: 100%;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
+
         body {
             height: 100vh;
             width: 100vw;
             background-color: #003F8C;
         }
+
         a {
             text-decoration: none;
             color: #fc97cc;
         }
+
         img {
             width: 500px;
             height: 500px;
         }
+
         h1 {
             color: white;
             font-size: 50px;
             margin-top: 20px;
         }
+
         p {
             color: white;
             font-size: 20px;
             margin-top: 20px;
         }
+
         .content {
             display: flex;
             justify-content: center;
@@ -53,28 +61,34 @@
                 width: 300px;
                 height: 300px;
             }
+
             h1 {
                 font-size: 30px;
             }
+
             p {
                 font-size: 15px;
             }
         }
     </style>
 </head>
+
 <body>
     <div class="content">
-    <a href="https://mixarchitecture.pages.dev" target="_blank"><img alt="logo" src="./logo.png" /></a>
-    <a  href="https://mixarchitecture.pages.dev" target="_blank"><h1>Mix Architecture</h1></a>
-    <p id="description">This site was developed with MixArchitecture.</p>
-    <p id="copyright">
-        CopyRight &copy; <span id="year">2023</span> by <a href="https://mixarchitecture.pages.dev" target="_blank">MixArchitecture</a>
-    </p>
-</div>
+        <a href="https://mixarchitecture.pages.dev" target="_blank"><img alt="logo" src="./logo.png" /></a>
+        <a href="https://mixarchitecture.pages.dev" target="_blank">
+            <h1>Mix Architecture</h1>
+        </a>
+        <p id="description">This site was developed with MixArchitecture.</p>
+        <p id="copyright">
+            CopyRight &copy; <span id="year">2023</span> by <a href="https://mixarchitecture.pages.dev"
+                target="_blank">MixArchitecture</a>
+        </p>
+    </div>
 
+    <script src="./i18n.js"></script>
     <script>
-        const clientLanguage = navigator.language || navigator.userLanguage;
-        const messages = {
+        const i18nMessages = {
             tr: {
                 description: 'Bu site MixArchitecture ile geliştirildi.',
                 copyright: (year) => `Tüm hakları saklıdır &copy; ${year} tarafından <a href="https://mixarchitecture.pages.dev" target="_blank">MixArchitecture</a>`,
@@ -93,28 +107,26 @@
             }
         }
 
+        const messages = getMessages(i18nMessages);
+
         const currentYear = new Date().getFullYear();
 
-        const writeConsole = ({welcome, consoleMessage, technicalSupport}) => {
+        const writeConsole = ({ welcome, consoleMessage, technicalSupport }) => {
             console.info(welcome);
             console.info(consoleMessage);
             console.info(technicalSupport);
         }
-
-        if (['tr', 'tr-TR'].includes(clientLanguage)) {
-            writeConsole(messages.tr);
-            const description = document.getElementById('description');
-            description.innerHTML = messages.tr.description;
-            const copyright = document.getElementById('copyright');
-            copyright.innerHTML = messages.tr.copyright(currentYear);
-            document.getElementById('title').innerHTML = messages[clientLanguage].welcomeTitle;
-        }else {
-            writeConsole(messages.en);
-        }
+        writeConsole(messages);
+        const description = document.getElementById('description');
+        description.innerHTML = messages.description;
+        const copyright = document.getElementById('copyright');
+        copyright.innerHTML = messages.copyright(currentYear);
+        document.getElementById('title').innerHTML = messages.welcomeTitle;
 
         const year = document.getElementById('year');
         year.innerHTML = currentYear;
 
     </script>
 </body>
+
 </html>
